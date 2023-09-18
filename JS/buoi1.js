@@ -73,11 +73,11 @@ console.log(comp(avg_Dophins, avg_Koalas))
 
 //Challenge 4
 var bill = 275
-tip = (bill) => {
+calcTip = (bill) => {
     return (bill > 50 && bill < 300) ? bill * 15 / 100 : bill * 20 / 100
 }
-let total = tip(bill) + bill
-let inra = `The bill was ${bill}, the tip was ${tip(bill)} and the total value ${total}`
+let total = calcTip(bill) + bill
+let inra = `The bill was ${bill}, the tip was ${calcTip(bill)} and the total value ${total}`
 console.log(inra)
 
 //Chalenge 5
@@ -138,7 +138,49 @@ const john = {
     height: 1.95
 }
 mark.calcBMI = function() {
-    return mark.mass / mark.height ** 2
+    return this.mass / this.height ** 2
+}
+john.calcBMI = function() {
+    return this.mass / this.height ** 2
 }
 
-console.log(mark.calcBMI)
+if(mark.calcBMI() < john.calcBMI()) 
+   console.log(`John's BMI ${john.calcBMI().toFixed(2)} is higher than Mark's ${mark.calcBMI().toFixed(2)}!`)
+else
+    console.log(`Mark's BMI ${mark.calcBMI().toFixed(2)} is higher than John's ${john.calcBMI().toFixed(2)}!`)
+
+//Challenge 8
+let bill9 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+let tip9 = []
+let total9 = []
+for(let i = 0; i < bill9.length; i++){
+    tip9.push(calnTip(bill9[i]))
+}
+for(let i = 0; i < bill9.length; i++){
+    total9.push(calnTip(bill9[i])+bill9[i])
+}
+let tong = 0
+let calcAverage9 = (arr) => {
+    for(let i = 0; i < arr.length; i++){
+        tong = tong + arr[i]
+    }
+    return tong/arr.length
+}
+console.log(calcAverage9(bill9))
+console.log(calcAverage9(tip9))
+console.log(calcAverage9(total9))
+
+
+
+//Challenge 9
+let data1 = [17, 21, 23]
+let data2 = [12, 5, -5, 0, 4]
+
+let printForecast = (arr) => {
+    for(let i = 0; i < arr.length; i++){
+        console.log(`${arr[i]}oC trong ${i+1} ngay`)
+    }
+}
+
+console.log(printForecast(data1))
+console.log(printForecast(data2))
